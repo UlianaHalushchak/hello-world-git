@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+ div { color:blue; }
+ span { color:red; }
+ </style>
+ <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+ <script src="http://intech.lviv.ua/jquery.min.js"></script>
+</head>
+<body>
+
+
+	 <button name="testerus" class="testerus">Тестуємо :)</button>
+
+	 <script language="javascript" type="text/javascript">
+    $('.testerus').click( function() {
+        $.ajax({
+                                url: "/ajax_responder.php?action=testerus",
+                                type: "GET",
+                                data: {
+                                "action": 1
+                                },
+                                cache: false,
+                                success: function(response){
+                                $('.results').empty()
+                                $(".results").append(response);
+                                }                                
+
+    		});
+        });
+    </script>
+<div class="results">Оновлюємо дані </div>
+
+</body>
+</html>
